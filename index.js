@@ -418,7 +418,7 @@ bot.onText(/^\/vedi$/, async (msg, match) => {
   const chatId = msg.chat.id;
   bot.sendMessage(
     chatId,
-    "Per visualizzare tutte gli ingressi e le uscite di una data lanciare il comando /vedi <dd-mm-yyyy: 01-01-2022>"
+    "Per visualizzare tutti gli ingressi e le uscite di una data lanciare il comando /vedi <dd-mm-yyyy: 01-01-2022>"
   );
 });
 
@@ -455,7 +455,7 @@ bot.onText(/\/vedi (.+)/, (msg, match) => {
   }
 
   executeQuery(
-    `select * from entrate where giornata = "${data}"`,
+    `select * from entrate where giornata = "${data}" ORDER BY id`,
     function (error, result) {
       if (error) {
         bot.sendMessage(chatId, "Si è verificato un errore durante la riceca della data (funzione vedi) dell'entrata " + error);
@@ -494,7 +494,7 @@ bot.on("message", (msg) => {
 bot.onText(/^\/comandi$/, (msg) => {
   chatId = msg.chat.id;
   //var menu = ["/entra", "/esci", "/ingresso <nome>", "/uscita <nome>", "/dataingresso <nome> <giorno> <orario>", "/datauscita <nome> <giorno> <orario>", "/cancella <nome> <giorno>"];
-  var menu2 = ["/entra", "/esci", "/ingresso", "/uscita", "/dataingresso", "/datauscita", "/cancella"];
+  var menu2 = ["/entra", "/esci", "/ingresso", "/uscita", "/dataingresso", "/datauscita", "/vedi", "/cancella"];
 
 
   var options = {
@@ -538,7 +538,7 @@ bot.on("callback_query", (callbackQuery) => {
           bot.sendMessage(chatId, "Per cancellare una data usa il comando /cancella <nome dipendente: sergio> <dd-mm-yyyy: 01-01-2022> "+ emoji.red_circle);
           break;
         case 'vedi':
-          bot.sendMessage(chatId, "Per visualizzare tutte gli ingressi e le uscite di una data lanciare il comando /vedi <dd-mm-yyyy: 01-01-2022> " + emoji.memo);
+          bot.sendMessage(chatId, "Per visualizzare tutti gli ingressi e le uscite di una data lanciare il comando /vedi <dd-mm-yyyy: 01-01-2022> " + emoji.memo);
           break;
         default:
           bot.sendMessage(msg.chat.id, "Non hai selezionato nessuno dei comandi disponibili. Per visualizzare la lista dei comandi invia /comandi "+ emoji.rotating_light);
