@@ -6,9 +6,10 @@ var moment = require("moment");
 const user_allowed = [process.env.userAllowed];
 var trovato = null;
 const token = process.env.TOKEN;
-const bot = new TelegramBot(token, { /*webHook:{port: 443},*/ polling:true });
-const url = 'localhost'||'https://telegrambotsergio.herokuapp.com/:443';
-/*bot.setWebHook(`${url}/bot${token}`); */
+const bot = new TelegramBot(token, { webHook:{port: 443} /*, polling:true*/ });
+$port = process.env.PORT;
+const url = 'https://git.heroku.com/app-botsergio.git/:'.$port;
+bot.setWebHook(`${url}/bot${token}`);
 module.exports = bot;
 const { check_if_allowed,
   who_is,
