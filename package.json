@@ -1,0 +1,23 @@
+{
+  "name": "telegram-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "material-icons": "^1.11.10",
+    "moment": "^2.29.4",
+    "mysql": "^2.18.1",
+    "node-emoji": "^1.11.0",
+    "node-telegram-bot-api": "^0.58.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^11.5.1"
+  }
+}
