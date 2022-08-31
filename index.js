@@ -8,7 +8,7 @@ var trovato = null;
 const token = process.env.TOKEN;
 port = process.env.PORT || 443;
 host = '0.0.0.0'
-externalUrl = process.env.CUSTOM_ENV_VARIABLE || 'https://app-botsergio.herokuapp.com/',
+externalUrl = process.env.CUSTOM_URL || 'https://app-botsergio.herokuapp.com/',
 bot = new TelegramBot(process.env.TOKEN, { webHook: { port : port, host : host } });
 bot.setWebHook(externalUrl + ':443/bot' + token);
 module.exports = bot;
