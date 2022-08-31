@@ -9,7 +9,7 @@ const token = process.env.TOKEN;
 //const bot = new TelegramBot(token, { webHook:{port: 443} /*, polling:true*/ });
 port = process.env.PORT || 443;
 host = '0.0.0.0',  // probably this change is not required
-externalUrl = process.env.CUSTOM_ENV_VARIABLE || 'https://git.heroku.com/app-botsergio.git',
+externalUrl = process.env.CUSTOM_ENV_VARIABLE || 'https://app-botsergio.herokuapp.com/',
 bot = new TelegramBot(process.env.TOKEN, { webHook: { port : port, host : host } });
 //const url = 'https://git.heroku.com/app-botsergio.git:'.$port;
 bot.setWebHook(externalUrl + ':443/bot' + token);
