@@ -6,12 +6,10 @@ var moment = require("moment");
 const user_allowed = [process.env.userAllowed];
 var trovato = null;
 const token = process.env.TOKEN;
-//const bot = new TelegramBot(token, { webHook:{port: 443} /*, polling:true*/ });
 port = process.env.PORT || 443;
-host = '0.0.0.0',  // probably this change is not required
+host = '0.0.0.0'
 externalUrl = process.env.CUSTOM_ENV_VARIABLE || 'https://app-botsergio.herokuapp.com/',
 bot = new TelegramBot(process.env.TOKEN, { webHook: { port : port, host : host } });
-//const url = 'https://git.heroku.com/app-botsergio.git:'.$port;
 bot.setWebHook(externalUrl + ':443/bot' + token);
 module.exports = bot;
 const { check_if_allowed,
